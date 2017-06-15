@@ -1622,13 +1622,13 @@ namespace VaultSharp
             return response;
         }
 
-        public async Task TransitCreateEncryptionKeyAsync(string encryptionKeyName, TransitKeyType transitKeyType = TransitKeyType.aes256_gcm96, bool mustUseKeyDerivation = false, bool doConvergentEncryption = false, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit)
+        public async Task TransitCreateEncryptionKeyAsync(string encryptionKeyName, TransitKeyType transitKeyType = TransitKeyType.aes256_gcm96, bool mustUseKeyDerivation = false, bool doConvergentEncryption = false, bool isExportableKey = false, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit)
         {
             Checker.NotNull(transitBackendMountPoint, "transitBackendMountPoint");
             Checker.NotNull(encryptionKeyName, "encryptionKeyName");
 
             // keep type as enum so that the natural json converter will kick-in for hyphen handling. don't convert to string.
-            var requestData = new { type = transitKeyType, derived = mustUseKeyDerivation, convergent_encryption = doConvergentEncryption };
+            var requestData = new { type = transitKeyType, derived = mustUseKeyDerivation, convergent_encryption = doConvergentEncryption, exportable = isExportableKey };
             await MakeVaultApiRequest(transitBackendMountPoint.Trim('/') + "/keys/" + encryptionKeyName, HttpMethod.Post, requestData).ConfigureAwait(continueOnCapturedContext: _continueAsyncTasksOnCapturedContext);
         }
 

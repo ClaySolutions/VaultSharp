@@ -366,7 +366,7 @@ namespace VaultSharp.UnitTests
                 await _authenticatedVaultClient.MountSecretBackendAsync(backend);
 
                 var keyName = "test_key" + Guid.NewGuid();
-                await _authenticatedVaultClient.TransitCreateEncryptionKeyAsync(keyName, TransitKeyType.aes256_gcm96, true, true, backend.MountPoint);
+                await _authenticatedVaultClient.TransitCreateEncryptionKeyAsync(keyName, TransitKeyType.aes256_gcm96, true, true, false, backend.MountPoint);
 
                 var keyInfo = await _authenticatedVaultClient.TransitGetEncryptionKeyInfoAsync(keyName, backend.MountPoint);
 
@@ -379,7 +379,7 @@ namespace VaultSharp.UnitTests
                 // await RunWrapUnwrapCheck(_authenticatedVaultClient.TransitGetEncryptionKeyInfoAsync(keyName, backend.MountPoint, wrapTimeToLive: "1m"));
 
                 var keyName2 = "test_key" + Guid.NewGuid();
-                await _authenticatedVaultClient.TransitCreateEncryptionKeyAsync(keyName2, TransitKeyType.ecdsa_p256, false, false, backend.MountPoint);
+                await _authenticatedVaultClient.TransitCreateEncryptionKeyAsync(keyName2, TransitKeyType.ecdsa_p256, false, false, false, backend.MountPoint);
 
                 var keyList = await _authenticatedVaultClient.TransitGetEncryptionKeyListAsync(backend.MountPoint);
                 Assert.True(keyList.Data.Keys.Count == 2);

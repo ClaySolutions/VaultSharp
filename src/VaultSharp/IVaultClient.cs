@@ -2336,13 +2336,16 @@ namespace VaultSharp
         /// then separate the bytes so that twelve bytes are used as the nonce and the remaining as the context, 
         /// ensuring that all bits of unique identity are used as a part of the encryption operation. 
         /// Defaults to false.</param>
+        /// <param name="isExportableKey"><para>[optional]</para>
+        /// Boolean flag when set, the key will be exportable.
+        /// Defaults to false.</param>
         /// <param name="transitBackendMountPoint"><para>[optional]</para>
         /// The mount point for the Transit backend. Defaults to <see cref="SecretBackendType.Transit" />
         /// Provide a value only if you have customized the Transit mount point.</param>
         /// <returns>
         /// The task.
         /// </returns>
-        Task TransitCreateEncryptionKeyAsync(string encryptionKeyName, TransitKeyType transitKeyType = TransitKeyType.aes256_gcm96,  bool mustUseKeyDerivation = false, bool doConvergentEncryption = false, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit);
+        Task TransitCreateEncryptionKeyAsync(string encryptionKeyName, TransitKeyType transitKeyType = TransitKeyType.aes256_gcm96,  bool mustUseKeyDerivation = false, bool doConvergentEncryption = false, bool isExportableKey = false, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit);
 
         /// <summary>
         /// Returns information about a named encryption key.
