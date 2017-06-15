@@ -2559,7 +2559,7 @@ namespace VaultSharp
         /// If <see cref="returnKeyAsPlainText" /> is true, the plaintext key will be returned along with the ciphertext.
         /// If false, only the ciphertext value will be returned.
         /// </returns>
-        Task<Secret<TransitKeyData>> TransitCreateDataKeyAsync(string encryptionKeyName, bool returnKeyAsPlainText = false, string base64EncodedKeyDerivationContext = null, string convergentEncryptionBase64EncodedNonce = null, int keyBits = 256, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit, string wrapTimeToLive = null);
+        Task<Secret<TransitDataKeyData>> TransitCreateDataKeyAsync(string encryptionKeyName, bool returnKeyAsPlainText = false, string base64EncodedKeyDerivationContext = null, string convergentEncryptionBase64EncodedNonce = null, int keyBits = 256, string transitBackendMountPoint = SecretBackendDefaultMountPoints.Transit, string wrapTimeToLive = null);
 
         /// <summary>
         /// Return high-quality random bytes of the specified length.

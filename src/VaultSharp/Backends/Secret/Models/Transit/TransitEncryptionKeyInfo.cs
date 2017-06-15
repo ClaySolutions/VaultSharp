@@ -37,14 +37,13 @@ namespace VaultSharp.Backends.Secret.Models.Transit
         public bool MustUseKeyDerivation { get; set; }
 
         /// <summary>
-        /// Gets or sets the key version creation times.
-        /// Shows the creation time of each key version; the values are not the keys themselves. 
+        /// Gets or sets the keys.
         /// </summary>
         /// <value>
-        /// The key version creation times.
+        /// The keys.
         /// </value>
         [JsonProperty("keys")]
-        public Dictionary<string, int> KeyVersionCreationTimes { get; set; }
+        public Dictionary<string, TransitEncryptionKeyData> Keys { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum version of ciphertext allowed to be decrypted. 

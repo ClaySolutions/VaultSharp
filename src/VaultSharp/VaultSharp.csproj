@@ -42,9 +42,8 @@
     <AssemblyOriginatorKeyFile>..\..\keys\VaultSharp.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\clp.poc.mockup.api\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -129,8 +128,9 @@
     <Compile Include="Backends\Secret\Models\Transit\PlainTextData.cs" />
     <Compile Include="Backends\Secret\Models\Transit\CipherTextData.cs" />
     <Compile Include="Backends\Secret\Models\Transit\BatchInputItem.cs" />
+    <Compile Include="Backends\Secret\Models\Transit\TransitEncryptionKeyData.cs" />
     <Compile Include="Backends\Secret\Models\Transit\TransitKeyType.cs" />
-    <Compile Include="Backends\Secret\Models\Transit\TransitKeyData.cs" />
+    <Compile Include="Backends\Secret\Models\Transit\TransitDataKeyData.cs" />
     <Compile Include="Backends\Secret\Models\Transit\TransitEncryptionKeyInfo.cs" />
     <Compile Include="Backends\Secret\Models\PKI\CertificateCredentials.cs" />
     <Compile Include="Backends\Secret\Models\PKI\RawCertificateSigningRequestData.cs" />

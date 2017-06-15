@@ -5,7 +5,7 @@ namespace VaultSharp.Backends.Secret.Models.Transit
     /// <summary>
     /// Represents the transit key data.
     /// </summary>
-    public class TransitKeyData
+    public class TransitDataKeyData
     {
         /// <summary>
         /// Gets or sets the plain text key.
